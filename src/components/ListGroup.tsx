@@ -2,16 +2,17 @@
 // alse we can import Fragment from react and use it as <Fragment></Fragment>
 // import React, { Fragment } from 'react';
 import { MouseEvent, useState } from "react";
+import styled from "styled-components";
 
 interface ListGroupProps {
-  cities: string[];
+  items: string[];
   heading: string;
   onSelectedItem: (index: number, name: string) => void;
 }
 
 //function ListGroup() {
 //  const ListGroup = (props: ListGroupProps) => {
-const ListGroup = ({ cities, heading, onSelectedItem }: ListGroupProps) => {
+const ListGroup = ({ items, heading, onSelectedItem }: ListGroupProps) => {
   //const cities = ["New York", "London", "Toronto", "Sydney", "Mumbai"];
   // let selectedIndex = -1;
   const [selectedIndex, setSelectedIndex] = useState(-1);
@@ -25,10 +26,10 @@ const ListGroup = ({ cities, heading, onSelectedItem }: ListGroupProps) => {
     <>
       <h1>{heading}</h1>
       <ul className="list-group">
-        {cities.length === 0 ? (
+        {items.length === 0 ? (
           <p>There are no cities in the list</p>
         ) : (
-          cities.map((item, index) => {
+          items.map((item, index) => {
             return (
               <li
                 key={index}
